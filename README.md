@@ -196,7 +196,7 @@ The data clearly illustrates how experience level has a huge impact on the avera
 
 ## Conclusion
 
-I used SQL to perform data analysis for the first time with this project. It helped me understand how to ask questions about the data and how to use SQL to get the answers. However, it also helped me remember that data analysis is not the tools that we use, but the insights we can get from data. I look forward to any recommendations and advice. I am always looking for ways to imrpove my analytical skills.  
+I used SQL to perform data analysis for the first time with this project. It helped me understand how to ask questions about the data and how to use SQL to get the answers. However, it also helped me remember that data analysis is not the tools that we use, but the insights we can get from data. I look forward to any recommendations and advice. I am always looking for ways to improve my analytical skills.  
 
 *It's worth noting that this analysis is based on the provided dataset and may not fully capture the entire range of salaries across different employment types in the data industry. For a more comprehensive understanding, additional data and variables should be considered.*
 

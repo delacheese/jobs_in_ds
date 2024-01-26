@@ -166,7 +166,7 @@ The data clearly illustrates how experience level has a huge impact on the avera
 - Machine Learning & AI closely follows, with salaries surpassing $200,000, indicating its growing importance and diverse applications.
 - Variations exist within categories, influenced by specific job titles and company factors.
 
-**Geographical Differences:*
+**Geographical Differences:**
 
 - The United States leads with an average salary of $158,159 and the most job openings (8132).
 - Canada follows closely with a competitive average of $143,919 and 226 job postings.

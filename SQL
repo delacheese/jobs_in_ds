@@ -1,0 +1,88 @@
+/*
+Jobs and Salaries in Data Science SQL Queries
+*/
+
+SELECT * 
+FROM 'jobs_in_data.csv'
+LIMIT 10;
+-- exploring the data
+
+
+SELECT DISTINCT work_year 
+FROM 'jobs_in_data.csv'
+-- What is the range of the years in our dataset?
+
+SELECT DISTINCT work_year AS work_year, COUNT(job_title) AS number_of_jobs
+FROM 'jobs_in_data.csv'
+GROUP BY work_year
+ORDER BY work_year;
+-- how many jobs by year?
+
+SELECT work_year, COUNT(experience_level) AS number_of_jobs, experience_level
+FROM 'jobs_in_data.csv'
+WHERE work_year = '2020'
+GROUP BY work_year, experience_level
+ORDER BY work_year;
+-- average salary by year
+
+
+SELECT ROUND(AVG(salary_in_usd), 2) AS avg_salary_in_usd, work_year 
+FROM 'jobs_in_data.csv'
+WHERE work_year = '2020'
+	AND experience_level = 'Entry-level'
+GROUP BY work_year
+ORDER BY work_year;
+-- average salary by experience level in 2020, repeat for remaining years then perform a join 
+
+
+SELECT COALESCE(df5.work_year, df6.work_year, df7.work_year, df8.work_year) AS work_year, 
+       COALESCE(df5.avg_salary_in_usd, df6.avg_salary_in_usd, df7.avg_salary_in_usd, df8.avg_salary_in_usd) AS avg_salary_in_usd
+FROM df5 
+FULL JOIN df6 ON df5.work_year = df6.work_year
+FULL JOIN df7 ON df5.work_year = df7.work_year
+FULL JOIN df8 ON df5.work_year = df8.work_year;
+-- performed this join on all 4 experience levels to get the average salary each year by experience level
+
+
+SELECT DISTINCT job_category AS category, salary_in_usd
+FROM 'jobs_in_data.csv'
+GROUP BY job_category, salary_in_usd
+ORDER BY salary_in_usd DESC;
+-- average salary by category
+
+SELECT DISTINCT job_category AS job_category, AVG(salary_in_usd) AS avg_salary
+FROM 'jobs_in_data.csv'
+WHERE experience_level = 'Entry-level'
+GROUP BY job_category, salary_in_usd
+ORDER BY salary_in_usd DESC;
+-- average salary by category and experience level, repeat query for each experience level
+
+SELECT ROUND(AVG(salary_in_usd), 0) AS avg_salary_in_usd, company_location, COUNT(job_title) AS number_of_jobs
+FROM 'jobs_in_data.csv'
+GROUP BY company_location
+ORDER BY number_of_jobs DESC
+-- Average salary in USD and number of jobs by country
+
+SELECT ROUND(AVG(salary_in_usd), 0) as avg_salary_in_usd, company_size, COUNT(job_title) AS number_of_jobs
+FROM 'jobs_in_data.csv'
+GROUP BY company_size
+ORDER BY avg_salary_in_usd;
+-- average salary by company size
+
+SELECT ROUND(AVG(salary_in_usd), 0) AS avg_salary, employment_type, COUNT(job_title) AS number_of_jobs
+FROM 'jobs_in_data.csv'
+GROUP BY employment_type;
+-- average salary by employment type
+
+SELECT ROUND(AVG(salary_in_usd), 2) AS avg_salary, work_setting
+FROM 'jobs_in_data.csv'
+GROUP BY work_setting;
+-- average salary by work setting
+
+SELECT ROUND(AVG(salary_in_usd), 0) AS avg_salary, experience_level
+FROM 'jobs_in_data.csv'
+GROUP BY experience_level
+ORDER BY avg_salary DESC;
+-- average salary by experience level 
+
+Please feel free to give me any advice. This is my first time using SQL to perform data analysis and I want to make sure I get as much feedback as possible. Thank you very much!
